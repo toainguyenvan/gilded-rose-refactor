@@ -81,7 +81,38 @@ class BaseItem < Sulfuras
 end
 ```
 
-And, other classes inherit from `BaseItem`
+And, other classes inherit from `BaseItem`, like below:
+
+```ruby
+class AgedBrie < BaseItem
+  def initialize(item)
+    super
+  end
+  
+  def before_sell_date_passed
+    increase_quality
+  end
+  ...
+end
+
+class BackStage < BaseItem
+  def initialize(item)
+    super
+  end
+  ...
+end
+
+class Conjured < BaseItem
+  def initialize(item)
+    super
+  end
+
+  def before_sell_date_passed
+    decrease_quality(2)
+  end
+  ...
+end
+```
 
 *NOTE:*
 Functions from `BaseItem` will be extended for difference purposes
