@@ -66,7 +66,7 @@ Summary the requirements:
 
 ## And...Conjured Items
 
-New reuirement, `Conjured` items, the behaviour is X2 than normal item, so:
+New requirement, `Conjured` items, the behaviour is X2 than normal item, so:
 Add one more type:
 ```ruby
 def is_conjured?(item)
