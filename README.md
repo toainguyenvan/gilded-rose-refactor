@@ -16,9 +16,10 @@ gilded_rose = GildedRose([item])
 ```
 `item` can be a single object or the array of Struct `Item`
 
-The `update_quality` function use to calculate the quality the list of items
+The `update_quality` function use to calculate quality of the list item
 
 We seperate item into many types like these:
+
 *Aged Brie*
 ```ruby
 def is_aged_brie?(item)
