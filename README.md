@@ -49,6 +49,7 @@ end
 
 Implement the Test Cases to cover the logics:
 Summary the requirements:
+
 *Normal Items:*
 - Lower the quality by 1 everyday
 - Lower the quality by 2 when sell date passed (`sell_in = 0`)
@@ -66,5 +67,16 @@ Summary the requirements:
 ## And...Conjured Items
 
 New reuirement, `Conjured` items, the behaviour is X2 than normal item, so:
+Add one more type:
+```ruby
+def is_conjured?(item)
+  item == 'Conjured'
+end
+```
+Then, update the test case, add more context:
 - Lower the quality by 2 everyday
 - Lower the quality by 4 when sell date passed
+
+Done.
+
+
