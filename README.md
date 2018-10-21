@@ -18,7 +18,79 @@ gilded_rose = GildedRose([item])
 
 The `update_quality` function use to calculate quality of the list item
 
-We seperate item into many types like these:
+## Next Steps
+
+Implement the Test Cases to cover the logics:
+Summary the requirements:
+
+*Normal Items:*
+- Lower the quality by 1 everyday
+- Lower the quality by 2 when sell date passed (`sell_in = 0`)
+
+*Aged Brie:*
+- Increase the quality by 1 everyday
+- Increase the quality by 2 when sell date passed
+
+*Backstage passes:*
+- Increase the quality by 1 every day
+- Increase the quality by 2 when 5 < sell_in <= 10
+- Increase the quality by 3 when 0 < sell_in <= 5
+- Drop quality to 0 when sell date passed
+
+## And...Conjured Items
+
+New requirement, `Conjured` items, the behaviour is X2 than normal item, so:
+
+Then, update the test case, add more context:
+- Lower the quality by 2 everyday
+- Lower the quality by 4 when sell date passed
+
+## APPROACH 1 (gilded_rose_refactor.rb, gilded_rose_refactor_spec.rb)
+
+
+Separate into many classes like these:
+
+`Legendary` class for `Sulfuras`
+```ruby
+class Sulfuras
+  def initialize(item)
+    @item = item
+  end
+  attr_accessor :item
+
+  def update_quality
+    item
+  end
+end
+```
+
+Then, we inherit from that one:
+
+`BaseItem`, for normal item
+```ruby
+class BaseItem < Sulfuras
+  def initialize(item)
+    super
+  end
+  ...
+  def update_quality
+    check_sell_date
+    decrease_sell_in
+    check_quality_conditions
+  end
+end
+```
+
+And, other classes inherit from `BaseItem`
+
+*NOTE:*
+Functions from `BaseItem` will be extended for difference purposes
+
+
+## APPROACH 2 (gilded_rose.rb, gilded_rose_spec.rb)
+
+
+Seperate item into many types like these:
 
 *Aged Brie*
 ```ruby
@@ -44,43 +116,13 @@ def is_normal? (item)
   !is_aged_brie?(item) && !is_backstage?(item)
 end
 ```
+## Test
 
-## Next Steps
-
-Implement the Test Cases to cover the logics:
-Summary the requirements:
-
-*Normal Items:*
-- Lower the quality by 1 everyday
-- Lower the quality by 2 when sell date passed (`sell_in = 0`)
-
-*Aged Brie:*
-- Increase the quality by 1 everyday
-- Increase the quality by 2 when sell date passed
-
-*Backstage passes:*
-- Increase the quality by 1 every day
-- Increase the quality by 2 when 5 < sell_in <= 10
-- Increase the quality by 3 when 0 < sell_in <= 5
-- Drop quality to 0 when sell date passed
-
-## And...Conjured Items
-
-New requirement, `Conjured` items, the behaviour is X2 than normal item, so:
-Add one more type:
-```ruby
-def is_conjured?(item)
-  item == 'Conjured'
-end
-```
-Then, update the test case, add more context:
-- Lower the quality by 2 everyday
-- Lower the quality by 4 when sell date passed
-
-Test it:
+How to test it?
 ```
 rspec --format doc
 ```
+
 The output should be:
 ```
 GildedRose
