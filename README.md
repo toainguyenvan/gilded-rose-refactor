@@ -77,6 +77,37 @@ Then, update the test case, add more context:
 - Lower the quality by 2 everyday
 - Lower the quality by 4 when sell date passed
 
+Test it:
+```
+rspec --format doc
+```
+The output should be:
+```
+GildedRose
+  Normal Items
+    Not change the item name
+    Lower the quality by day, BEFORE sell date passed
+    Lower the quality by day, WHEN sell date passed
+    Quality not negative
+    Check quality when sell date passed
+  Sulfuras Items
+    Not changes anything
+  Aged Brie Items
+    Increase quality by older it gets
+    When sell_in passed, quality increase twice
+    Quality never greater than 50
+  Backstage passes Items
+    When sell_in not passed
+      sell_in > 10. Increase 1 by older it gets
+      When 5 < sell_in <= 10, quality increase by 2
+      When sell_in <= 5, quality increase by 3
+    When sell_in passed
+      Drop to 0
+  Conjured Items
+    Degrade quality twice than normal, BEFORE sell date passed
+    Degrade quality twice than normal, AFTER sell date passed
+```
+
 Done.
 
 
