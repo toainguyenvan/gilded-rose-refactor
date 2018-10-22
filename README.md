@@ -21,6 +21,7 @@ The `update_quality` function use to calculate quality of the list item
 ## Next Steps
 
 Implement the Test Cases to cover the logics:
+
 Summary the requirements:
 
 *Normal Items:*
