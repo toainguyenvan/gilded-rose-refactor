@@ -10,9 +10,9 @@ class GildedRose
   ...
 end
 ```
-Create the `GildedRose` instance:
+Create the `gilded_rose` instance:
 ```ruby
-gilded_rose = GildedRose([item])
+gilded_rose = GildedRose.new([item])
 ```
 `item` can be a single object or the array of Struct `Item`
 
