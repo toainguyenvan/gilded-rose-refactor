@@ -48,7 +48,6 @@ Then, update the test case, add more context:
 
 ## APPROACH 1 (gilded_rose_refactor.rb, gilded_rose_refactor_spec.rb)
 
-
 Separate into many classes like these:
 
 `Legendary` class for `Sulfuras`
