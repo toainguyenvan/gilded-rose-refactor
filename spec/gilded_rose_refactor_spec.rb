@@ -128,18 +128,18 @@ RSpec.describe GildedRoseRefactor do
 
         context "Conjured Items" do
             it "Degrade quality twice than normal, BEFORE sell date passed" do
-            item = Item.new('Conjured', 5, 10)
-            gilded_rose = described_class.new([item])
-            gilded_rose.update_quality
-            expect(item.quality).to eq 8
+                item = Item.new('Conjured', 5, 10)
+                gilded_rose = described_class.new([item])
+                gilded_rose.update_quality
+                expect(item.quality).to eq 8
             end
             it "Degrade quality twice than normal, AFTER sell date passed" do
-            item = Item.new('Conjured', 0, 8)
-            gilded_rose = described_class.new([item])
-            gilded_rose.update_quality
-            expect(item.quality).to eq 4
-            gilded_rose.update_quality
-            expect(item.quality).to eq 0
+                item = Item.new('Conjured', 0, 8)
+                gilded_rose = described_class.new([item])
+                gilded_rose.update_quality
+                expect(item.quality).to eq 4
+                gilded_rose.update_quality
+                expect(item.quality).to eq 0
             end
         end
     end
