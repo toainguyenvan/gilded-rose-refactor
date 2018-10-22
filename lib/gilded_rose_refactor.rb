@@ -9,21 +9,20 @@ class GildedRoseRefactor
             case item.name
             when 'Sulfuras, Hand of Ragnaros'
                 sulfuras = Sulfuras.new(item)
-                item = sulfuras.update_quality
+                sulfuras.update_quality
             when 'Aged Brie'
                 aged_brie = AgedBrie.new(item)
-                item = aged_brie.update_quality
+                aged_brie.update_quality
             when 'Backstage passes to a TAFKAL80ETC concert'
                 backstage = BackStage.new(item)
-                item = backstage.update_quality
+                backstage.update_quality
             when 'Conjured'
                 conjured = Conjured.new(item)
-                item = conjured.update_quality
+                conjured.update_quality
             else
                 normal = BaseItem.new(item)
-                item = normal.update_quality
+                normal.update_quality
             end
-            
         }
     end
 end
