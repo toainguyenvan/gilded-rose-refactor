@@ -181,6 +181,6 @@ GildedRose
     Degrade quality twice than normal, AFTER sell date passed
 ```
 
-Done.
+Done!
 
 
